@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+  <rect width="360" height="420" fill="#003566"/>
+  <circle cx="90" cy="90" r="50" fill="#ffd60a"/>
+  <rect x="160" y="70" width="160" height="90" fill="#ef233c"/>
+  <rect x="40" y="200" width="120" height="140" fill="#8d99ae"/>
+  <circle cx="260" cy="280" r="70" fill="#2b2d42"/>
+  <circle cx="260" cy="280" r="30" fill="#edf2f4"/>
+  <text x="180" y="400" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#ffd60a">sticker sheet</text>
+</svg>

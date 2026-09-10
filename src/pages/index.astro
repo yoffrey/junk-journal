@@ -1,0 +1,86 @@
+---
+import { getCollection } from 'astro:content';
+import Book from '../components/Book';
+import '../styles/journal.css';
+import type { BookLeaf, Piece, ScrapObject } from '../lib/types';
+
+const entries = (await getCollection('pieces')).sort(
+	(a, b) => a.data.date.valueOf() - b.data.date.valueOf(),
+);
+
+const pieces: Piece[] = entries.map((entry) => ({
+	slug: entry.id,
+	title: entry.data.title,
+	date: entry.data.date.toISOString(),
+	medium: entry.data.medium,
+	materials: [...entry.data.materials],
+	tags: [...entry.data.tags],
+	palette: entry.data.palette,
+	body: entry.body ?? '',
+	objects: entry.data.objects.map(
+		(obj, i): ScrapObject => ({
+			id: obj.id ?? `obj-${i}`,
+			type: obj.type,
+			src: obj.src,
+			srcs: obj.srcs,
+			text: obj.text,
+			back: obj.back,
+			x: obj.x,
+			y: obj.y,
+			rotate: obj.rotate,
+			width: obj.width,
+			z: obj.z,
+			page: obj.page,
+			frame: obj.frame,
+			color: obj.color,
+			interact: [...obj.interact],
+		}),
+	),
+}));
+
+const leaves: BookLeaf[] = [
+	{ kind: 'cover' },
+	{
+		kind: 'contents',
+		pieces: pieces.map((p) => ({ slug: p.slug, title: p.title, medium: p.medium })),
+	},
+	...pieces.map((piece) => ({ kind: 'piece' as const, piece })),
+	{ kind: 'about' },
+];
+---
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Junk journal</title>
+		<link rel="preconnect" href="https://fonts.googleapis.com" />
+		<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+		<link
+			href="https://fonts.googleapis.com/css2?family=Bungee&family=Caveat:wght@500;700&family=Fraunces:opsz,wght@9..144,500;9..144,700&family=Special+Elite&display=swap"
+			rel="stylesheet"
+		/>
+	</head>
+	<body>
+		<Book client:load leaves={leaves} />
+		<noscript>
+			<main class="fallback">
+				<h1>Junk journal</h1>
+				<p>Turn on JavaScript to flip the book. Until then, here are the pieces:</p>
+				{
+					pieces.map((p) => (
+						<article>
+							<h2>{p.title}</h2>
+							<p>
+								{p.medium} · {p.date.slice(0, 10)}
+							</p>
+							<p>{p.body}</p>
+						</article>
+					))
+				}
+			</main>
+		</noscript>
+	</body>
+</html>

@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 340">
+  <rect width="280" height="340" fill="#c9ada7"/>
+  <ellipse cx="140" cy="150" rx="80" ry="100" fill="#9a8c98"/>
+  <rect x="70" y="90" width="140" height="160" fill="#4a4e69"/>
+  <text x="140" y="320" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#22223b">silhouette</text>
+</svg>

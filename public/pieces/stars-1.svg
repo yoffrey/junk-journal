@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+  <rect width="360" height="420" fill="#fefae0"/>
+  <polygon points="180,40 210,140 318,140 230,200 260,310 180,240 100,310 130,200 42,140 150,140" fill="#6d2c3a"/>
+  <circle cx="180" cy="200" r="36" fill="#e9c46a"/>
+  <text x="180" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#6d2c3a">clay star</text>
+</svg>

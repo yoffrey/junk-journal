@@ -1,0 +1,7 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+  <rect width="360" height="420" fill="#ffddd2"/>
+  <circle cx="180" cy="200" r="110" fill="#e29578"/>
+  <rect x="120" y="160" width="120" height="80" rx="8" fill="#edf6f9"/>
+  <text x="180" y="210" text-anchor="middle" font-family="sans-serif" font-size="18" fill="#006d77">CLICK</text>
+  <text x="180" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#006d77">retro button</text>
+</svg>

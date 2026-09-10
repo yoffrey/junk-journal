@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+  <rect width="360" height="420" fill="#90be6d"/>
+  <ellipse cx="180" cy="210" rx="120" ry="140" fill="#43aa8b"/>
+  <circle cx="140" cy="180" r="18" fill="#fff"/>
+  <circle cx="220" cy="180" r="18" fill="#fff"/>
+  <circle cx="144" cy="184" r="8" fill="#1d3557"/>
+  <circle cx="224" cy="184" r="8" fill="#1d3557"/>
+  <path d="M140 250 Q180 280 220 250" fill="none" stroke="#1d3557" stroke-width="6"/>
+  <text x="180" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="20" fill="#1d3557">pressed leaf</text>
+</svg>

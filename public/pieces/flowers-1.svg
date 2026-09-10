@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 420">
+  <rect width="360" height="420" fill="#ffb703"/>
+  <circle cx="180" cy="200" r="90" fill="#fb8500"/>
+  <circle cx="180" cy="200" r="50" fill="#fff3b0"/>
+  <g fill="#e63946">
+    <ellipse cx="180" cy="110" rx="28" ry="48"/>
+    <ellipse cx="180" cy="290" rx="28" ry="48"/>
+    <ellipse cx="90" cy="200" rx="48" ry="28"/>
+    <ellipse cx="270" cy="200" rx="48" ry="28"/>
+  </g>
+  <circle cx="180" cy="200" r="22" fill="#2a9d8f"/>
+  <text x="180" y="390" text-anchor="middle" font-family="Georgia, serif" font-size="22" fill="#5c3d1e">paper bloom</text>
+</svg>

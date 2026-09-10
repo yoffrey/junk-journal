@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 280">
+  <rect width="360" height="280" fill="#1d3557"/>
+  <rect x="30" y="40" width="140" height="180" fill="#f1faee"/>
+  <rect x="190" y="50" width="140" height="180" fill="#e63946"/>
+  <text x="180" y="250" text-anchor="middle" font-family="monospace" font-size="16" fill="#f1faee">mix tape still</text>
+</svg>

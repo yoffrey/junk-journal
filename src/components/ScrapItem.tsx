@@ -7,14 +7,35 @@ function storageKey(slug: string, id: string) {
 	return `junk-journal:${slug}:${id}`;
 }
 
+function scrapAlt(obj: ScrapObject) {
+	if (obj.text?.trim()) return obj.text.trim();
+	if (obj.back?.trim()) return obj.back.trim();
+	if (obj.type === 'photo' || obj.type === 'waterfall') return 'scrap photo';
+	if (obj.type === 'envelope') return 'envelope';
+	return '';
+}
+
+function interactHint(obj: ScrapObject) {
+	const bits: string[] = [];
+	if (obj.interact.includes('drag')) bits.push('drag');
+	if (obj.interact.includes('flip')) bits.push('flip');
+	if (obj.interact.includes('flap')) bits.push('open');
+	if (obj.interact.includes('stamp')) bits.push('press');
+	if (obj.interact.includes('clip')) bits.push('nudge');
+	if (obj.interact.includes('waterfall') || obj.type === 'waterfall') bits.push('pull tab');
+	return bits.length ? bits.join(', ') : undefined;
+}
+
 export default function ScrapItem({
 	obj,
 	slug,
 	tidyToken,
+	enterDelay = 0,
 }: {
 	obj: ScrapObject;
 	slug: string;
 	tidyToken: number;
+	enterDelay?: number;
 }) {
 	const canDrag = obj.interact.includes('drag');
 	const [pos, setPos] = useState<Pos>({ x: obj.x, y: obj.y, rotate: obj.rotate });
@@ -24,6 +45,7 @@ export default function ScrapItem({
 	const [clipNudge, setClipNudge] = useState(0);
 	const [fan, setFan] = useState(0);
 	const [dragging, setDragging] = useState(false);
+	const [entered, setEntered] = useState(false);
 	const posRef = useRef(pos);
 	posRef.current = pos;
 	const drag = useRef<{
@@ -51,6 +73,16 @@ export default function ScrapItem({
 		}
 	}, [slug, obj.id, obj.x, obj.y, obj.rotate, tidyToken]);
 
+	useEffect(() => {
+		const reduce = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+		if (reduce) {
+			setEntered(true);
+			return;
+		}
+		const id = window.setTimeout(() => setEntered(true), enterDelay);
+		return () => window.clearTimeout(id);
+	}, [enterDelay, slug, tidyToken]);
+
 	function persist(next: Pos) {
 		setPos(next);
 		try {
@@ -61,7 +93,17 @@ export default function ScrapItem({
 	}
 
 	function onPointerDown(e: PE<HTMLDivElement>, kind: 'move' | 'fan' = 'move') {
-		if (kind === 'move' && !canDrag) return;
+		if (kind === 'move' && !canDrag) {
+			// Still allow tap interactions without drag
+			if (
+				!obj.interact.includes('flip') &&
+				!obj.interact.includes('flap') &&
+				!obj.interact.includes('stamp') &&
+				!obj.interact.includes('clip')
+			) {
+				return;
+			}
+		}
 		e.stopPropagation();
 		e.preventDefault();
 		pageRef.current = (e.currentTarget as HTMLElement).closest('.page');
@@ -74,7 +116,7 @@ export default function ScrapItem({
 			kind,
 			startFan: fan,
 		};
-		setDragging(true);
+		setDragging(kind === 'move' && canDrag);
 
 		const move = (ev: PointerEvent) => {
 			if (!drag.current) return;
@@ -85,6 +127,7 @@ export default function ScrapItem({
 				setFan(Math.min(1, Math.max(0, drag.current.startFan + dy / 140)));
 				return;
 			}
+			if (!canDrag) return;
 			const box = pageRef.current?.getBoundingClientRect();
 			if (!box) return;
 			const nx = Math.min(88, Math.max(0, drag.current.origX + (dx / box.width) * 100));
@@ -102,7 +145,7 @@ export default function ScrapItem({
 			const dragKind = drag.current.kind;
 			drag.current = null;
 			setDragging(false);
-			if (dragKind === 'move' && wasMove) {
+			if (dragKind === 'move' && wasMove && canDrag) {
 				persist(posRef.current);
 				return;
 			}
@@ -119,6 +162,14 @@ export default function ScrapItem({
 		window.addEventListener('pointerup', up);
 	}
 
+	const hint = interactHint(obj);
+	const alt = scrapAlt(obj);
+	const keyboardable =
+		obj.interact.includes('flip') ||
+		obj.interact.includes('flap') ||
+		obj.interact.includes('stamp') ||
+		obj.interact.includes('clip');
+
 	const style = {
 		left: `${pos.x}%`,
 		top: `${pos.y}%`,
@@ -126,6 +177,7 @@ export default function ScrapItem({
 		zIndex: dragging ? 80 : obj.z,
 		transform: `rotate(${pos.rotate + (pressed ? 2 : 0) + clipNudge * 0.2}deg) scale(${pressed ? 0.9 : 1})`,
 		['--clip' as string]: `${clipNudge}px`,
+		['--enter-delay' as string]: `${enterDelay}ms`,
 	};
 
 	const classes = [
@@ -136,6 +188,8 @@ export default function ScrapItem({
 		dragging ? 'is-dragging' : '',
 		flipped ? 'is-flipped' : '',
 		flapOpen ? 'is-open' : '',
+		entered ? 'is-entered' : 'is-entering',
+		hint ? 'is-interactive' : '',
 	]
 		.filter(Boolean)
 		.join(' ');
@@ -145,6 +199,24 @@ export default function ScrapItem({
 			className={classes}
 			style={style}
 			onPointerDown={(e) => onPointerDown(e, 'move')}
+			role={keyboardable ? 'button' : undefined}
+			tabIndex={keyboardable ? 0 : undefined}
+			aria-label={hint ? `${alt || obj.type}: ${hint}` : alt || undefined}
+			aria-pressed={
+				obj.interact.includes('flip') ? flipped : obj.interact.includes('flap') ? flapOpen : undefined
+			}
+			onKeyDown={(e) => {
+				if (!keyboardable) return;
+				if (e.key !== 'Enter' && e.key !== ' ') return;
+				e.preventDefault();
+				if (obj.interact.includes('flip')) setFlipped((v) => !v);
+				if (obj.interact.includes('flap')) setFlapOpen((v) => !v);
+				if (obj.interact.includes('stamp')) {
+					setPressed(true);
+					window.setTimeout(() => setPressed(false), 220);
+				}
+				if (obj.interact.includes('clip')) setClipNudge((n) => (n === 0 ? 18 : 0));
+			}}
 		>
 			{obj.type === 'waterfall' && (
 				<div className="waterfall">
@@ -152,7 +224,7 @@ export default function ScrapItem({
 						<img
 							key={src}
 							src={src}
-							alt=""
+							alt={i === 0 ? alt || 'photo stack' : ''}
 							className="waterfall-card"
 							style={{
 								transform: `translateY(${-fan * (i + 1) * 28}px) rotate(${(i - 1) * 4 * fan}deg)`,
@@ -174,7 +246,7 @@ export default function ScrapItem({
 			{obj.type === 'photo' && (
 				<div className="polaroid-inner">
 					<div className="polaroid-face front">
-						{obj.src ? <img src={obj.src} alt="" /> : null}
+						{obj.src ? <img src={obj.src} alt={alt || 'scrap photo'} /> : null}
 					</div>
 					<div className="polaroid-face back">
 						<p>{obj.back ?? obj.text ?? ''}</p>
@@ -213,7 +285,7 @@ export default function ScrapItem({
 			{obj.type === 'speech' && <p className="speech-bubble">{obj.text}</p>}
 
 			{obj.type === 'star' && (
-				<svg viewBox="0 0 100 100" className="star-svg">
+				<svg viewBox="0 0 100 100" className="star-svg" aria-hidden="true">
 					<polygon
 						points="50,4 61,38 98,38 68,58 79,92 50,72 21,92 32,58 2,38 39,38"
 						fill={obj.color ?? '#6d2c3a'}
@@ -225,7 +297,7 @@ export default function ScrapItem({
 				<div className="envelope">
 					<div className="envelope-flap" />
 					<div className="envelope-body">
-						{obj.src ? <img src={obj.src} alt="" /> : null}
+						{obj.src ? <img src={obj.src} alt={alt || 'envelope contents'} /> : null}
 						<p className="hand">{obj.text}</p>
 					</div>
 				</div>

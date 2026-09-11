@@ -429,13 +429,6 @@ a { color: inherit; }
 	to { transform: rotateY(118deg); }
 }
 
-@media (prefers-reduced-motion: reduce) {
-	.book.flip-next .page.right,
-	.book.flip-prev .page.left { animation: none; }
-	.page-curl > span,
-	.hamburger { transition: none; }
-}
-
 .turn-zone {
 	position: absolute;
 	top: 0;
@@ -468,8 +461,7 @@ a { color: inherit; }
 	transition:
 		filter 0.18s ease,
 		box-shadow 0.18s ease,
-		opacity 0.45s ease,
-		translate 0.45s ease;
+		opacity 0.4s ease;
 	user-select: none;
 	filter:
 		drop-shadow(1px 2px 1px rgba(40, 25, 10, 0.18))
@@ -477,12 +469,9 @@ a { color: inherit; }
 }
 .scrap.is-entering {
 	opacity: 0;
-	translate: 0 10px;
 }
 .scrap.is-entered {
 	opacity: 1;
-	translate: 0 0;
-	transition-delay: 0s, 0s, 0s, 0s;
 }
 .scrap.can-drag { cursor: grab; }
 .scrap.is-dragging {
@@ -947,7 +936,6 @@ a { color: inherit; }
 	.contents-overlay { animation: none; }
 	.scrap.is-entering {
 		opacity: 1;
-		translate: none;
 	}
 }
 
@@ -969,33 +957,40 @@ a { color: inherit; }
 	}
 	.pane-cue {
 		display: flex;
-		gap: 0.35rem;
+		gap: 0.4rem;
 		position: absolute;
 		left: 50%;
-		bottom: 0.7rem;
-		transform: translateX(-50%);
+		bottom: 0.65rem;
+		transform: translateX(-50%) rotate(-1deg);
 		z-index: 40;
-		padding: 0.2rem;
+		padding: 0.15rem;
 	}
 	.pane-cue button {
-		border: 1px solid rgba(42, 34, 24, 0.28);
-		background: linear-gradient(160deg, rgba(255, 252, 245, 0.92), rgba(235, 220, 185, 0.78));
+		appearance: none;
+		-webkit-appearance: none;
+		border: 1px solid rgba(42, 34, 24, 0.32);
+		background:
+			linear-gradient(145deg, #f9e8b0 0%, #efd48a 55%, #e2c070 100%);
 		font-family: var(--stamp);
 		font-size: 0.68rem;
-		letter-spacing: 0.06em;
+		letter-spacing: 0.08em;
 		text-transform: uppercase;
-		padding: 0.35rem 0.65rem;
-		color: var(--ink-faint);
+		padding: 0.4rem 0.75rem;
+		color: var(--ink);
 		cursor: pointer;
-		opacity: 0.72;
-		box-shadow: 1px 1px 0 rgba(42, 34, 24, 0.12);
+		opacity: 0.78;
+		box-shadow:
+			1px 2px 0 rgba(90, 70, 30, 0.2),
+			2px 4px 6px rgba(0, 0, 0, 0.12);
+		border-radius: 1px;
 	}
 	.pane-cue button.is-active {
 		opacity: 1;
-		color: var(--ink);
+		transform: rotate(-2deg);
 		box-shadow:
-			1px 1px 0 rgba(42, 34, 24, 0.2),
-			inset 0 0 0 1px rgba(42, 34, 24, 0.18);
+			1px 1px 0 rgba(42, 34, 24, 0.22),
+			inset 0 1px 0 rgba(255, 255, 255, 0.35);
+		filter: saturate(0.95);
 	}
 	.pane-cue button:focus-visible {
 		outline: 2px dashed rgba(42, 34, 24, 0.5);

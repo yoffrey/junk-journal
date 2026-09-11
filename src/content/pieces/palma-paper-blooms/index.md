@@ -108,6 +108,17 @@ objects:
     z: 6
     page: right
     interact: [drag]
+  - id: stamp-flora
+    type: photo
+    src: /pieces/stamp-flora.svg
+    frame: sticker
+    x: 72
+    y: 68
+    width: 18
+    rotate: 14
+    z: 7
+    page: right
+    interact: [drag, stamp]
 ---
 
 A fake travel spread until the real photos land. Pull the tab on the left — the stack should waterfall like a paper mechanism. Flip the polaroid for the note on the back.

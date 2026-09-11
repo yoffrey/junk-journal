@@ -33,7 +33,7 @@ Put photos in `public/pieces/` (or another public folder) and point `src` at the
 Copy an existing `index.md`. Frontmatter fields:
 
 - `title`, `date`, `medium`, `materials`, `tags`
-- `palette`: `tropical` | `primary` | `burgundy`
+- `palette`: `tropical` | `primary` | `burgundy` | `soda` | `midnight` | `kraft`
 - `objects`: items glued to the left or right page
 
 Object fields:

@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 360 220">
+  <rect width="360" height="220" rx="6" fill="#d8f3dc"/>
+  <rect x="0" y="18" width="360" height="28" fill="#2d6a4f"/>
+  <rect x="0" y="174" width="360" height="28" fill="#2d6a4f"/>
+  <circle cx="70" cy="110" r="42" fill="#95d5b2" opacity="0.7"/>
+  <circle cx="290" cy="110" r="36" fill="#95d5b2" opacity="0.55"/>
+  <text x="180" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="34" font-weight="700" fill="#1b4332">MINT TWIST</text>
+  <text x="180" y="138" text-anchor="middle" font-family="Courier New, monospace" font-size="12" letter-spacing="3" fill="#40916c">CHEWING GUM · 14 STICKS</text>
+  <rect x="12" y="12" width="12" height="196" fill="#52b788" opacity="0.5"/>
+  <rect x="336" y="12" width="12" height="196" fill="#52b788" opacity="0.5"/>
+</svg>

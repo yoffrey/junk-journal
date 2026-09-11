@@ -1,0 +1,12 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 180 220">
+  <rect width="180" height="220" fill="#fefae0"/>
+  <path d="M4,10 Q10,4 16,10 Q22,4 28,10 Q34,4 40,10 Q46,4 52,10 Q58,4 64,10 Q70,4 76,10 Q82,4 88,10 Q94,4 100,10 Q106,4 112,10 Q118,4 124,10 Q130,4 136,10 Q142,4 148,10 Q154,4 160,10 Q166,4 172,10 Q176,4 176,10 V210 Q170,216 164,210 Q158,216 152,210 Q146,216 140,210 Q134,216 128,210 Q122,216 116,210 Q110,216 104,210 Q98,216 92,210 Q86,216 80,210 Q74,216 68,210 Q62,216 56,210 Q50,216 44,210 Q38,216 32,210 Q26,216 20,210 Q14,216 8,210 Q4,216 4,210 Z" fill="#fefae0" stroke="#6a994e" stroke-width="2"/>
+  <circle cx="90" cy="88" r="36" fill="#dda15e"/>
+  <circle cx="90" cy="88" r="16" fill="#bc6c25"/>
+  <ellipse cx="90" cy="52" rx="14" ry="24" fill="#6a994e"/>
+  <ellipse cx="90" cy="124" rx="14" ry="24" fill="#6a994e"/>
+  <ellipse cx="54" cy="88" rx="24" ry="14" fill="#a7c957"/>
+  <ellipse cx="126" cy="88" rx="24" ry="14" fill="#a7c957"/>
+  <text x="90" y="170" text-anchor="middle" font-family="Georgia, serif" font-size="12" fill="#386641">WILD BLOOM</text>
+  <text x="90" y="192" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#bc6c25">30¢</text>
+</svg>

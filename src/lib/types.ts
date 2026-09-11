@@ -25,7 +25,7 @@ export type Piece = {
 	medium: string;
 	materials: string[];
 	tags: string[];
-	palette: 'tropical' | 'primary' | 'burgundy';
+	palette: 'tropical' | 'primary' | 'burgundy' | 'soda' | 'midnight' | 'kraft';
 	body: string;
 	objects: ScrapObject[];
 };

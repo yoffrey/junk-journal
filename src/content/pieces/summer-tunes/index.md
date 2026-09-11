@@ -114,6 +114,17 @@ objects:
     z: 9
     page: right
     interact: [clip]
+  - id: stub
+    type: photo
+    src: /pieces/ticket-stub.svg
+    frame: none
+    x: 72
+    y: 8
+    width: 16
+    rotate: 8
+    z: 8
+    page: right
+    interact: [drag]
 ---
 
 Cream paper, burgundy stars, ransom-note titles. Open the envelope. Tidy the page if it gets too honest.

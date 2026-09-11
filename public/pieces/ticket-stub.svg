@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 280">
+  <rect width="160" height="280" fill="#1d3557"/>
+  <rect x="8" y="8" width="144" height="264" fill="none" stroke="#f1faee" stroke-width="1.5"/>
+  <text x="80" y="48" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#a8dadc">RIALTO</text>
+  <text x="80" y="100" text-anchor="middle" font-family="Georgia, serif" font-size="18" fill="#f1faee">F12</text>
+  <text x="80" y="128" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#a8dadc">SEAT</text>
+  <line x1="24" y1="150" x2="136" y2="150" stroke="#a8dadc" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="80" y="180" text-anchor="middle" font-family="Courier New, monospace" font-size="12" fill="#f1faee">2:40</text>
+  <text x="80" y="210" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#a8dadc">JUN 14</text>
+  <text x="80" y="250" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#e63946">KEEP THIS</text>
+</svg>

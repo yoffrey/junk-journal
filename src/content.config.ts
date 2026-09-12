@@ -47,7 +47,9 @@ const pieces = defineCollection({
 		medium: z.string(),
 		materials: z.array(z.string()).default([]),
 		tags: z.array(z.string()).default([]),
-		palette: z.enum(['tropical', 'primary', 'burgundy']).default('tropical'),
+		palette: z
+			.enum(['tropical', 'primary', 'burgundy', 'soda', 'midnight', 'kraft'])
+			.default('tropical'),
 		objects: z.array(scrapObject),
 	}),
 });

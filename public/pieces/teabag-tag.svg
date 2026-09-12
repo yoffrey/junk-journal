@@ -1,0 +1,10 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 320">
+  <rect x="40" y="8" width="120" height="90" rx="4" fill="#fefae0" stroke="#6c584c" stroke-width="2"/>
+  <text x="100" y="42" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#6c584c">EVENING</text>
+  <text x="100" y="64" text-anchor="middle" font-family="Georgia, serif" font-size="14" fill="#6c584c">CHAMOMILE</text>
+  <text x="100" y="84" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#a98467">BREW 4 MIN</text>
+  <line x1="100" y1="98" x2="100" y2="150" stroke="#6c584c" stroke-width="1.5"/>
+  <path d="M55,150 L145,150 L130,300 L70,300 Z" fill="#e9edc9" stroke="#6c584c" stroke-width="2"/>
+  <path d="M78,170 L122,170 L114,270 L86,270 Z" fill="#ccd5ae" opacity="0.7"/>
+  <text x="100" y="220" text-anchor="middle" transform="rotate(-90 100 220)" font-family="Courier New, monospace" font-size="10" fill="#6c584c">LOT 28</text>
+</svg>

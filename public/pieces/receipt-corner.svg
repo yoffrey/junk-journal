@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 280 420">
+  <defs>
+    <filter id="grain"><feTurbulence type="fractalNoise" baseFrequency="0.9" numOctaves="2" stitchTiles="stitch"/><feColorMatrix values="0 0 0 0 0.2  0 0 0 0 0.15  0 0 0 0 0.1  0 0 0 0.12 0"/></filter>
+  </defs>
+  <path d="M8,6 H272 V400 Q266,406 260,400 Q254,406 248,400 Q242,406 236,400 Q230,406 224,400 Q218,406 212,400 Q206,406 200,400 Q194,406 188,400 Q182,406 176,400 Q170,406 164,400 Q158,406 152,400 Q146,406 140,400 Q134,406 128,400 Q122,406 116,400 Q110,406 104,400 Q98,406 92,400 Q86,406 80,400 Q74,406 68,400 Q62,406 56,400 Q50,406 44,400 Q38,406 32,400 Q26,406 20,400 Q14,406 8,400 Z" fill="#f7f1e2"/>
+  <rect width="280" height="420" fill="url(#grain)" opacity="0.35" style="mix-blend-mode:multiply"/>
+  <text x="140" y="36" text-anchor="middle" font-family="Courier New, monospace" font-size="15" font-weight="700" fill="#2a2218">CORNER SHOP</text>
+  <text x="140" y="54" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#5a4a38">14 BELL ST · OPEN LATE</text>
+  <line x1="24" y1="66" x2="256" y2="66" stroke="#2a2218" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="28" y="90" font-family="Courier New, monospace" font-size="11" fill="#2a2218">grape soda</text>
+  <text x="252" y="90" text-anchor="end" font-family="Courier New, monospace" font-size="11" fill="#2a2218">1.25</text>
+  <text x="28" y="112" font-family="Courier New, monospace" font-size="11" fill="#2a2218">salt chips</text>
+  <text x="252" y="112" text-anchor="end" font-family="Courier New, monospace" font-size="11" fill="#2a2218">0.89</text>
+  <text x="28" y="134" font-family="Courier New, monospace" font-size="11" fill="#2a2218">mint gum</text>
+  <text x="252" y="134" text-anchor="end" font-family="Courier New, monospace" font-size="11" fill="#2a2218">0.65</text>
+  <text x="28" y="156" font-family="Courier New, monospace" font-size="11" fill="#2a2218">lottery scratch *</text>
+  <text x="252" y="156" text-anchor="end" font-family="Courier New, monospace" font-size="11" fill="#2a2218">2.00</text>
+  <line x1="24" y1="172" x2="256" y2="172" stroke="#2a2218" stroke-width="1" stroke-dasharray="3 2"/>
+  <text x="28" y="196" font-family="Courier New, monospace" font-size="12" font-weight="700" fill="#2a2218">TOTAL</text>
+  <text x="252" y="196" text-anchor="end" font-family="Courier New, monospace" font-size="12" font-weight="700" fill="#2a2218">4.79</text>
+  <text x="140" y="230" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#5a4a38">CARD **** 4412</text>
+  <text x="140" y="252" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#5a4a38">08 JUN 2026  21:14</text>
+  <rect x="70" y="278" width="140" height="36" fill="none" stroke="#2a2218" stroke-width="1.5"/>
+  <text x="140" y="301" text-anchor="middle" font-family="Courier New, monospace" font-size="13" fill="#2a2218">|| ||| | ||| ||</text>
+  <text x="140" y="350" text-anchor="middle" font-family="Courier New, monospace" font-size="10" fill="#5a4a38">thanks · come back</text>
+  <text x="140" y="372" text-anchor="middle" font-family="Courier New, monospace" font-size="9" fill="#7a6a58">* no winner this time</text>
+</svg>

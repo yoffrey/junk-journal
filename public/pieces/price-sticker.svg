@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 160 160">
+  <circle cx="80" cy="80" r="74" fill="#ffd60a"/>
+  <circle cx="80" cy="80" r="66" fill="none" stroke="#2a2218" stroke-width="2" stroke-dasharray="3 2"/>
+  <text x="80" y="72" text-anchor="middle" font-family="Courier New, monospace" font-size="14" fill="#2a2218">WAS</text>
+  <text x="80" y="108" text-anchor="middle" font-family="Georgia, serif" font-size="36" font-weight="700" fill="#c1121f">$1</text>
+</svg>

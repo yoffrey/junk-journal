@@ -116,6 +116,17 @@ objects:
     page: right
     color: "#222"
     interact: [drag, stamp]
+  - id: price
+    type: photo
+    src: /pieces/price-sticker.svg
+    frame: none
+    x: 72
+    y: 70
+    width: 16
+    rotate: -12
+    z: 8
+    page: right
+    interact: [drag, stamp]
 ---
 
 High-contrast sticker bomb on yellow paper. Paperclips slide. The polaroid flips. Smash the stickers.

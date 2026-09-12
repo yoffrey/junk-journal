@@ -1,0 +1,11 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 240 300">
+  <path d="M30,40 L210,40 L230,290 L10,290 Z" fill="#f1faee"/>
+  <path d="M30,40 L50,290 L10,290 Z" fill="#e63946"/>
+  <path d="M70,40 L90,290 L50,290 L30,40 Z" fill="#f1faee"/>
+  <path d="M110,40 L130,290 L90,290 L70,40 Z" fill="#e63946"/>
+  <path d="M150,40 L170,290 L130,290 L110,40 Z" fill="#f1faee"/>
+  <path d="M190,40 L210,40 L230,290 L170,290 Z" fill="#e63946"/>
+  <rect x="55" y="100" width="130" height="70" rx="4" fill="#1d3557"/>
+  <text x="120" y="130" text-anchor="middle" font-family="Georgia, serif" font-size="16" fill="#f1faee">POPCORN</text>
+  <text x="120" y="154" text-anchor="middle" font-family="Courier New, monospace" font-size="11" fill="#a8dadc">MEDIUM</text>
+</svg>
